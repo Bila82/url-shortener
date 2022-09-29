@@ -146,7 +146,7 @@ Si bien el fuerte de NodeJS es su capacidad para manejar muchos eventos, (gestio
 
 Por lo cual algunas sugerencias, a tener en cuenta son las siguientes:
 
-* Utilizar Cache: Esto permite almacenar consultas reiterativas a base de datos y evitar llamadas recurrentes, se puede utilizar un cdn (content delivery network), como por ejemplo Varnish [(https://varnish-cache.org/docs/index.html)](https://varnish-cache.org/docs/index.html), con lo cual mejoraria la velocidad de respuesta.
+* Utilizar Cache: Esto permite almacenar consultas reiterativas a base de datos y evitar llamadas recurrentes, como por ejemplo Varnish [(https://varnish-cache.org/docs/index.html)](https://varnish-cache.org/docs/index.html), con lo cual mejoraria la velocidad de respuesta.
 
 * Utilizar un Balanceador de Carga: Si se configura un balanceador de carga, que apunte a multiples instancias de la aplicacion, esto permitiria incrementar la cantidad de consultas, sin impactar negativamente en la performance. Nginx [https://www.nginx.com/](https://www.nginx.com/) o HAProxy [http://www.haproxy.org/](http://www.haproxy.org/).
 
