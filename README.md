@@ -92,7 +92,7 @@ Una vez instalados los programas requeridos, procedemos a instalar los paquetes/
 Utilizando Postman se pueden ejecutar los siguientes llamados:
 
 * Obtener una url corta
-  Metodo POST  [http://localhost:3333/api/short] (http://localhost:3333/api/short)
+  Metodo POST  [http://localhost:3333/api/short](http://localhost:3333/api/short)
   
   Body: 
   ```JSON
@@ -108,12 +108,12 @@ Utilizando Postman se pueden ejecutar los siguientes llamados:
   _Nota: cada ves que utilicemos una url corta, se incrementara el contador de visitas._
   
 * Borrar una url corta generada
-  Metodo DELETE [http://localhost:3333/api/short/AUSRtIcjK] (http://localhost:3333/api/short/AUSRtIcjK)
+  Metodo DELETE [http://localhost:3333/api/short/AUSRtIcjK](http://localhost:3333/api/short/AUSRtIcjK)
   
   Esto eliminara la url corta generada.
   
 * Ver el top de X urls, con mas visitas
-  Metodo GET [http://localhost:3333/api/short/top/:number] (http://localhost:3333/api/short/top/:number)
+  Metodo GET [http://localhost:3333/api/short/top/:number](http://localhost:3333/api/short/top/:number)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
