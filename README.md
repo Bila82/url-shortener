@@ -112,8 +112,8 @@ Utilizando Postman se pueden ejecutar los siguientes llamados:
   
   Esto eliminara la url corta generada.
   
-* Ver el top 10 de url, con mas visitas
-  Metodo GET [http://localhost:3333/api/short/top] (http://localhost:3333/api/short/top)
+* Ver el top de X urls, con mas visitas
+  Metodo GET [http://localhost:3333/api/short/top/:number] (http://localhost:3333/api/short/top/:number)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,10 +128,9 @@ _NOTA: Esto se puede reemplazar por una funcion que valide que la url exista, pe
 
 * Una vez que se valido la url original, el siguiente paso es verificar que dicha url, no exista en nuestra base de datos. Si existe se devuelve el registro existente, y sino se procede al siguiente paso.
 
-* Si la url no existe, procedemos a crear un nuevo codigo UUID, utilizando la libreria short-unique-id [https://shortunique.id/](https://shortunique.id/).
+* Si la url no existe, procedemos a crear un nuevo codigo UUID, utilizando la libreria short-unique-id [https://shortunique.id/](https://shortunique.id/). Verificamos que dicho UUID, no este actualmente en uso, si esta en uso volvemos a generar un nuevo UUID.
 
-_NOTA: Esto se puede reemplazar por las siguientes librerias que se encargan de encriptar y desencriptar en BASE64 la url recibida. Se encripta con la libreria "btoa" [https://www.npmjs.com/package/btoa](https://www.npmjs.com/package/btoa). Y luego para la consulta se desencripta con la libreria "atob" [https://www.npmjs.com/package/atob](https://www.npmjs.com/package/atob).
-Existe la posibilidad, que tanto el codigo generado con short unique id, como el encriptado con BASE64, se repita en algun momento, con lo cual seria bueno, validarlo con los registros en la Base de Datos_
+_NOTA: Se estuvo analizando una nueva forma de codificar la URL reducida, utilizando MD5 y BASE62, pero el tamaño generado es mayor al desado._
 
 * Lo que sigue luego de generar el codigo UUID o la encriptacion, es proceder a guardar en la base de Datos MongoDB, nuestro objeto JSON, cuyos campos mas importantes son la url original, y la url pequeña.
 
