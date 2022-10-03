@@ -28,9 +28,24 @@ router.post('/api/short', async (req, res) => {
             //Si no existe, damos el alta
             } else {
 
+                 var existeUIdGenerado = true;
+
                  const uid = new ShortUniqueId(); //En teoria no se duplican nunca los ids (Can generate any number of ids without duplicates, even millions per day.)
                  //console.log(uid());
-                 const urlIdGenerated = uid();
+                 var urlIdGenerated = uid();
+
+                 while(existeUIdGenerado){
+                    //Controlamos que el UID generado no este en uso en la base (hay muy bajas probabilidades, pero hay que controlar).
+                    let controlUrl = await Url.findOne({ urlId: urlIdGenerated });
+                    
+                    //si ya esta usado el ui generado, generamos uno nuevo y volvemos a controlar.
+                    if(controlUrl){
+                        var urlIdGenerated = uid();
+                    } else {
+                        existeUIdGenerado = false; 
+                    }
+                 }
+
                  const shortUrlCreated = `${base}/${urlIdGenerated}`;
 
                 returnUrl = new Url({
