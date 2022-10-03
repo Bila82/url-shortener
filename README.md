@@ -128,7 +128,7 @@ _NOTA: Esto se puede reemplazar por una funcion que valide que la url exista, pe
 
 * Una vez que se valido la url original, el siguiente paso es verificar que dicha url, no exista en nuestra base de datos. Si existe se devuelve el registro existente, y sino se procede al siguiente paso.
 
-* Si la url no existe, procedemos a crear un nuevo codigo UUID, utilizando la libreria short-unique-id [https://shortunique.id/] (https://shortunique.id/).
+* Si la url no existe, procedemos a crear un nuevo codigo UUID, utilizando la libreria short-unique-id [https://shortunique.id/](https://shortunique.id/).
 
 _NOTA: Esto se puede reemplazar por las siguientes librerias que se encargan de encriptar y desencriptar en BASE64 la url recibida. Se encripta con la libreria "btoa" [https://www.npmjs.com/package/btoa](https://www.npmjs.com/package/btoa). Y luego para la consulta se desencripta con la libreria "atob" [https://www.npmjs.com/package/atob](https://www.npmjs.com/package/atob).
 Existe la posibilidad, que tanto el codigo generado con short unique id, como el encriptado con BASE64, se repita en algun momento, con lo cual seria bueno, validarlo con los registros en la Base de Datos_
@@ -146,7 +146,7 @@ Si bien el fuerte de NodeJS es su capacidad para manejar muchos eventos, (gestio
 
 Por lo cual algunas sugerencias, a tener en cuenta son las siguientes:
 
-* Utilizar Cache: Esto permite almacenar consultas reiterativas a base de datos y evitar llamadas recurrentes, se puede utilizar un cdn (content delivery network), como por ejemplo Varnish [(https://varnish-cache.org/docs/index.html)](https://varnish-cache.org/docs/index.html), con lo cual mejoraria la velocidad de respuesta.
+* Utilizar Cache: Esto permite almacenar consultas reiterativas a base de datos y evitar llamadas recurrentes, como por ejemplo Varnish [(https://varnish-cache.org/docs/index.html)](https://varnish-cache.org/docs/index.html), con lo cual mejoraria la velocidad de respuesta.
 
 * Utilizar un Balanceador de Carga: Si se configura un balanceador de carga, que apunte a multiples instancias de la aplicacion, esto permitiria incrementar la cantidad de consultas, sin impactar negativamente en la performance. Nginx [https://www.nginx.com/](https://www.nginx.com/) o HAProxy [http://www.haproxy.org/](http://www.haproxy.org/).
 
