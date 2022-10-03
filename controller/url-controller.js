@@ -118,6 +118,7 @@ las 10 url con mas visitas */
 /**
  * GET /api/short/top
  * Metodo GET recupera el top 10  de url mas visitadas
+ * @param {string} number - tamano de la lista
  * @return {string} 200 response - Json con una lista de las 10 url con mayor cantidad de visitas
  */
 router.get('/api/short/top/:number', async (req, res) => {
