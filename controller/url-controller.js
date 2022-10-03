@@ -120,9 +120,9 @@ las 10 url con mas visitas */
  * Metodo GET recupera el top 10  de url mas visitadas
  * @return {string} 200 response - Json con una lista de las 10 url con mayor cantidad de visitas
  */
-router.get('/api/short/top', async (req, res) => {
+router.get('/api/short/top/:number', async (req, res) => {
     try {
-        const urlList = await Url.find().sort({ visits: -1 }).limit(10);
+        const urlList = await Url.find().sort({ visits: -1 }).limit(req.params.number);
         if (urlList) {
             //console.log(JSON.stringify(urlList));
             return res.json(urlList.map(u => u.tinyUrl + ' visits: ' + u.visits));
