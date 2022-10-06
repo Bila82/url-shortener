@@ -11,6 +11,9 @@ app.use(compression()); //En teoria mejora los tiempos, pero aun no detecte una 
 
 connectToDB();
 
+//Monitor de Express
+app.use(require('express-status-monitor')());
+
 // Body Parser - Se utiliza para poder leer el contenido de los request
 app.use(Express.urlencoded({ extended: true }));
 app.use(Express.json());
